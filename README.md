@@ -1,67 +1,69 @@
-# Lofree Flow Lite 84 蓝牙休眠修改
+# Lofree Flow Lite 84 Bluetooth Sleep Timeout Patch
 
-针对 **Lofree Flow Lite 84 / OE921 / 原厂 v1.66** 的固件分析、最小补丁与 macOS USB 刷写工具。目标是把蓝牙闲置休眠从约 **10 分钟延长至 30 分钟**，保留背光计时、按键唤醒、重连及其他连接模式的代码。
+English | [简体中文](README-zh.md)
 
-**当前结果：第二版已刷写成功，用户于 2026-10-24 确认修改已生效。** 实机确认来自用户反馈；项目未保存自动计时测量。详见[用户验证记录](output/radio-1800-v2/user-validation.md)。
+Firmware analysis, a minimal patch, and a macOS USB flashing tool for the **Lofree Flow Lite 84 / OE921 / stock firmware v1.66**. The goal is to extend the Bluetooth idle sleep timeout from approximately **10 minutes to 30 minutes**, preserving the code for backlight timing, key wake-up, reconnection, and other connection modes.
 
-## 当前有效固件
+**Current result: revision 2 was flashed successfully, and the user confirmed that the patch worked on October 24, 2026.** Hardware validation is based on user feedback; no automated timing measurements were recorded. See the [user validation record](output/radio-1800-v2/user-validation.md).
+
+## Current Firmware
 
 [OE921_v1.66_BT_idle_30min_radio1800_UNTESTED.bin](output/radio-1800-v2/OE921_v1.66_BT_idle_30min_radio1800_UNTESTED.bin)
 
 ```text
-大小：64,628 字节
-SHA-256：c10ffdff79e7b55a1b3f688d5d83d600ba38a8cf5f32855276b9204c87a063dd
-设备版本号：仍为 1.66
+Size: 64,628 bytes
+SHA-256: c10ffdff79e7b55a1b3f688d5d83d600ba38a8cf5f32855276b9204c87a063dd
+Device version: unchanged at 1.66
 ```
 
-文件名中的 `UNTESTED` 是构建时的命名，保留它以对应哈希和刷写记录；当前状态以本 README、用户验证记录和[第二版刷写验证](output/radio-1800-v2/flash-verification.json)为准。
+The `UNTESTED` suffix dates from the initial build and is retained for consistency with the hashes and flash records. For the current status, refer to this README, the user validation record, and the [revision 2 flash verification](output/radio-1800-v2/flash-verification.json).
 
-原厂镜像及第一版均保留。第一版只修改主控计时，刷写成功后仍在约 10 分钟断连，**不能当作已生效版本使用**。第二版额外修改主控发给无线侧的参数，随后用户确认问题解决。
+The stock image and revision 1 are preserved. Revision 1 only changed the main MCU timer; although flashing succeeded, Bluetooth still disconnected after approximately 10 minutes. **Revision 1 does not achieve the intended result.** Revision 2 additionally changes a parameter sent by the main MCU to the wireless side, after which the user confirmed that the issue was resolved.
 
-## 修改原理
+## How the Patch Works
 
-固件是 RV32 / 青稞 XW 程序。容器内的程序区通过重复 32 字节密钥逐字节加法编码；解码后可定位主控计时与无线侧命令。
+The firmware contains an RV32 / QingKe XW program. The program payload is encoded using byte-wise addition with a repeating 32-byte key. Decoding it makes it possible to locate the main MCU timer and commands sent to the wireless side.
 
-| CPU 地址 | 原值 → 当前值 | 作用 |
+| CPU Address | Original → Patched | Purpose |
 | --- | --- | --- |
-| `0x8b88` | 60 → 180 个约 10 秒周期 | 延长主控空闲倒计时 |
-| `0x92b8` | 剩余周期门限 54 → 174 | 配合计数增加，保持原提前节电入口约 60 秒的触发时点 |
-| `0x9216` | `a2=2` → `a2=7` | 无线侧 `0x0C` 命令参数高字节 |
-| `0x9218` | `a1=0x58` → `a1=8` | 无线侧 `0x0C` 命令参数低字节 |
+| `0x8b88` | 60 → 180 periods of approximately 10 seconds | Extend the main MCU idle countdown |
+| `0x92b8` | Remaining-period threshold: 54 → 174 | Compensate for the longer countdown while preserving the existing early power-saving entry point at approximately 60 seconds |
+| `0x9216` | `a2=2` → `a2=7` | High byte of the wireless-side `0x0C` command parameter |
+| `0x9218` | `a1=0x58` → `a1=8` | Low byte of the wireless-side `0x0C` command parameter |
 
-无线侧参数按低字节在前发送：`58 02`（600）→ `08 07`（1800）。调用仅位于模式值 1..5 的分支；模式 0（依据代码推断为 2.4G）和模式 10（有线）跳过该调用。
+The parameter is sent low byte first: `58 02` (600) → `08 07` (1800). This call is only made for mode values 1..5. Mode 0 (inferred from the code to be 2.4 GHz) and mode 10 (wired) skip the call.
 
-主控可以先进入低功耗，让无线侧继续维持蓝牙连接，因此只延长主控计时不足以完成目标。本次修改的是**主控发送的配置参数**，没有取得或改写独立无线模块固件。用户实测支持该参数控制空闲超时的判断，但尚无完整协议文档证明 `0x0C` 的全部语义。
+The main MCU can enter a low-power state while the wireless side maintains the Bluetooth connection, so extending the MCU timer alone is insufficient. This patch changes a **configuration parameter sent by the main MCU**; firmware for the separate wireless module was neither obtained nor modified. User testing supports the interpretation that this parameter controls the idle timeout, but the full semantics of `0x0C` have not been established through complete protocol documentation.
 
-相对原厂，程序区共改 6 字节；相对第一版新增 2 字节，计入校验后容器新增 8 字节差异。背光、唤醒、重连等其余代码保持原样；这不等同于已对所有连接模式做完整回归测试。
+The program payload differs from stock by 6 bytes. Relative to revision 1, revision 2 changes 2 additional program bytes and 8 container bytes in total, including checksum updates. All remaining code, including backlight, wake-up, and reconnection logic, is unchanged. This does not imply that every connection mode has undergone full regression testing.
 
-## 目录
+## Repository Layout
 
-| 路径 | 内容 |
+| Path | Contents |
 | --- | --- |
-| [tools/](tools/) | Python 编解码/补丁/验证、C 有限指令模拟、Swift HID 刷写、Ghidra 脚本 |
-| [output/radio-1800-v2/](output/radio-1800-v2/) | 当前有效第二版、差异清单、验证和刷写证据 |
-| [output/](output/) | 第一版历史产物和刷写记录；备份在 `output/backups/` |
-| [research/firmware/original/](research/firmware/original/) | 原厂 OE921 v1.66 容器及哈希 |
-| [research/firmware/analysis/](research/firmware/analysis/) | 解码程序、XW 反编译/反汇编及分析包装 ELF |
-| [research/](research/) | 调查报告、官方网页快照、安装包分析和 ISA 来源 |
-| `.tools/` | 本机项目内 REA、Ghidra，不纳入 Git |
-| `.cache/` | 编译文件、临时分析目录，不纳入 Git |
+| [tools/](tools/) | Python codec, patch builders and verifiers; bounded C instruction emulator; Swift HID flasher; Ghidra scripts |
+| [output/radio-1800-v2/](output/radio-1800-v2/) | Current revision 2 firmware, patch manifest, verification results, and flash evidence |
+| [output/](output/) | Historical revision 1 artifacts and flash records; backups are stored in `output/backups/` |
+| [research/firmware/original/](research/firmware/original/) | Stock OE921 v1.66 container and hashes |
+| [research/firmware/analysis/](research/firmware/analysis/) | Decoded program, XW decompilation/disassembly, and an ELF wrapper for analysis |
+| [research/](research/) | Investigation reports, official website snapshots, installer analysis, and ISA sources |
+| `.tools/` | Project-local REA and Ghidra installations; excluded from Git |
+| `.cache/` | Compiled files and temporary analysis directories; excluded from Git |
 
-`*.decoded.analysis-only.bin` 和 `*.elf` 仅用于分析，不能作为升级容器刷写。
+`*.decoded.analysis-only.bin` and `*.elf` files are for analysis only and must not be flashed as upgrade containers.
 
-## 环境与依赖
+## Environment and Dependencies
 
-- 离线编解码、补丁与 Python 验证只用 Python 3 标准库，无需 `pip install`。
-- C 指令验证使用 `clang`；Swift 刷写使用 macOS SDK、IOKit 与 CryptoKit，需要可用的 Xcode 或 Command Line Tools 环境。
-- 已使用的逆向工具是项目内 REA 6.7.0、Ghidra 12.1.3；JDK 21 由 Homebrew 安装，通过 `/usr/libexec/java_home -v 21` 查找。已有二进制补丁的重建无需启动 REA/Ghidra。
-- 继续反编译时使用 `tools/rea-project.sh` 选择本项目工具，并使用独立语言 `RISCV:LE:32:OE921_XW`。`tools/setup_oe921_xw.py` 用于配置该语言；普通 RV32 会误解部分 XW 压缩指令。
+- Offline encoding/decoding, patch building, and Python verification use only the Python 3 standard library. No `pip install` is required.
+- The C instruction verifier uses `clang`. The Swift flasher uses the macOS SDK, IOKit, and CryptoKit, and requires a working Xcode or Command Line Tools environment.
+- The reverse-engineering environment used project-local REA 6.7.0 and Ghidra 12.1.3. JDK 21 was installed through Homebrew and is located using `/usr/libexec/java_home -v 21`. Rebuilding the existing binary patch does not require running REA or Ghidra.
+- For further decompilation, use `tools/rea-project.sh` to select the project tools and the custom language `RISCV:LE:32:OE921_XW`. `tools/setup_oe921_xw.py` configures this language; standard RV32 decoding misinterprets some XW compressed instructions.
 
-`.tools/` 和 `.cache/` 是当前机器的本地环境，不随 Git 克隆自动恢复。分析 ELF、已有反编译结果和构建脚本保留在项目中。
+`.tools/` and `.cache/` contain machine-local files and are not restored automatically by cloning the repository. The analysis ELF, existing decompilation results, and build scripts are retained in the project.
 
-## 离线验证
+## Offline Verification
 
-以下命令从项目根目录运行，不访问键盘：
+Run the following command from the project root. It does not access the keyboard:
 
 ```sh
 python3 -B tools/verify_oe921_radio_idle.py \
@@ -69,9 +71,9 @@ python3 -B tools/verify_oe921_radio_idle.py \
   output/radio-1800-v2/OE921_v1.66_BT_idle_30min_radio1800_UNTESTED.bin
 ```
 
-它校验容器、使用逐位 CRC 复核设备检查值，并执行调用点的有限机器码模拟：两版各覆盖 256 个模式值，确认只有模式 1..5 传入对应参数，其他程序字节保持不变。它不模拟真实无线模块。
+The verifier checks the container, independently verifies the device checksum with a bitwise CRC implementation, and performs bounded execution of the actual instructions at the call site. It covers all 256 mode values for both revisions, confirms that only modes 1..5 pass the respective parameters, and checks that all other program bytes are unchanged. It does not emulate the physical wireless module.
 
-需要重新运行主控计时验证时：
+To rerun the main MCU timing verification:
 
 ```sh
 mkdir -p .cache
@@ -81,11 +83,11 @@ clang -O2 tools/verify_idle_machinecode.c -o .cache/verify_idle_machinecode
   output/radio-1800-v2/OE921_v1.66_BT_idle_30min_radio1800.decoded.analysis-only.bin
 ```
 
-验证覆盖主控重载、定时器 ISR 和提前节电门限；物理蓝牙休眠效果以实机反馈为准。
+This verifies the main MCU reload logic, timer ISR, and early power-saving threshold. Physical Bluetooth sleep behavior is established through hardware feedback.
 
-## 从原厂包重建
+## Rebuilding from Stock Firmware
 
-构建器锁定输入 SHA-256，并检查原指令；两个输出目录应事先不存在。第一步生成主控补丁中间版本，第二步补上无线侧参数。
+The builders enforce the expected input SHA-256 and check the original instructions. Neither output directory should already exist. The first step creates the intermediate MCU-only patch; the second adds the wireless-side parameter change.
 
 ```sh
 python3 -B tools/patch_oe921_idle.py \
@@ -101,13 +103,13 @@ python3 -B tools/verify_oe921_radio_idle.py \
   .cache/rebuild-radio1800/OE921_v1.66_BT_idle_30min_radio1800_UNTESTED.bin
 ```
 
-最终容器的 SHA-256 应与“当前有效固件”一致。不要删除旧目录来绕过输出保护；重复运行时选择新的输出目录。
+The final container's SHA-256 must match the value in “Current Firmware.” Choose new output directories for subsequent builds rather than deleting old directories to bypass overwrite protection.
 
-## macOS USB 刷写
+## USB Flashing on macOS
 
-当前源码 [OE921Flash.swift](tools/OE921Flash.swift) 只接受上面列出的第二版 SHA-256，并检查唯一匹配的正常 USB 升级接口及 v1.66。正常端点为 `05ac:024f`，BOOT 端点为 `3554:f808`；进入 BOOT 后还须匹配原 USB 物理位置。
+The current [OE921Flash.swift](tools/OE921Flash.swift) source accepts only the revision 2 SHA-256 listed above and requires a unique matching normal USB upgrade interface running v1.66. The normal endpoint is `05ac:024f`; the BOOT endpoint is `3554:f808`. After entering BOOT, the device must also match the original physical USB location.
 
-编译和预检命令：
+Build and preflight commands:
 
 ```sh
 mkdir -p .cache
@@ -118,7 +120,7 @@ swiftc -module-cache-path .cache/swift-module-cache \
   output/radio-1800-v2/OE921_v1.66_BT_idle_30min_radio1800_UNTESTED.bin
 ```
 
-`enumerate` 和 `plan` 不发送设备命令。真正的写入命令如下，仅在明确需要刷写时运行，键盘须保持 USB 数据连接；轨迹文件必须不存在：
+`enumerate` and `plan` do not send device commands. The command below performs the actual flash operation. Run it only when flashing is explicitly intended, keep the keyboard connected over USB with a data-capable cable, and use a trace file path that does not already exist:
 
 ```sh
 .cache/OE921Flash-radio1800 flash \
@@ -126,18 +128,18 @@ swiftc -module-cache-path .cache/swift-module-cache \
   output/radio-1800-v2/flash-next.jsonl
 ```
 
-该命令会复位、擦除和写入设备。已验证的是正常固件进入 BOOT 的升级路径；工具尚不支持 BOOT-only 恢复，原厂回退及故障恢复未实测。原厂容器是升级包，不是从当前键盘读出的完整备份。
+This command resets, erases, and writes the device. The tested upgrade path starts from normally running firmware and enters BOOT. The tool does not yet support BOOT-only recovery; stock rollback and failure recovery have not been tested. The stock container is an upgrade package, not a complete backup read from the current keyboard.
 
-第二版已完成 1,764 包逐字节回显、设备检查通过及升级成功、正常 USB 接口恢复。项目没有完整 Flash 读回，刷写成功与精确休眠时间测量属于不同证据。
+Revision 2 completed 1,764 packets with byte-for-byte matching echoes, passed the device check, received upgrade success, and returned to normal USB interfaces. A full Flash readback has not been performed. Successful flashing and precise sleep-time measurements are separate forms of evidence.
 
-## 研究资料与证据
+## Research and Evidence
 
-- [第二版修改说明](output/radio-1800-v2/README.zh-CN.md)：无线侧参数、差异和验证记录。
-- [第二版差异清单](output/radio-1800-v2/patch-manifest.json)：地址、字节、哈希、校验值。
-- [第二版刷写验证](output/radio-1800-v2/flash-verification.json)：传输与启动证据；其中时长未测字段反映刷写完成当时状态。
-- [用户实机确认](output/radio-1800-v2/user-validation.md)：后续实际效果反馈。
-- [编码与主控补丁报告](research/codec-and-idle-patch.md)：编解码、校验、ISA、第一版计时链和验证。
-- [固件研究记录](research/firmware-findings.md)：原厂来源、安装包提取、逆向工具和历史调查。
-- [隐藏配置排查](research/hidden-sleep-findings.md)：官方网页的“休眠时间”实际对应背光参数，不能用它替代蓝牙休眠修改。
+- [Revision 2 patch notes](output/radio-1800-v2/README.zh-CN.md): wireless-side parameter, differences, and verification records.
+- [Revision 2 patch manifest](output/radio-1800-v2/patch-manifest.json): addresses, bytes, hashes, and checksums.
+- [Revision 2 flash verification](output/radio-1800-v2/flash-verification.json): transfer and startup evidence. Its untested-timing field reflects the state immediately after flashing.
+- [User hardware validation](output/radio-1800-v2/user-validation.md): subsequent feedback on actual behavior.
+- [Codec and MCU patch report](research/codec-and-idle-patch.md): encoding/decoding, checksums, ISA, revision 1 timing paths, and verification.
+- [Firmware research log](research/firmware-findings.md): stock firmware sources, installer extraction, reverse-engineering tools, and investigation history.
+- [Hidden configuration investigation](research/hidden-sleep-findings.md): the official website's “sleep time” setting actually controls the backlight and cannot substitute for the Bluetooth sleep patch.
 
-原厂镜像 SHA-256：`20521b83834e7352fd2bed040293a599d6e37c1d80df185d003502b8ed801246`。这里只验证了指定 OE921/v1.66 镜像和当前实物，不将该补丁直接套用于 100 键版、其他型号或其他版本。
+Stock image SHA-256: `20521b83834e7352fd2bed040293a599d6e37c1d80df185d003502b8ed801246`. Validation is limited to the specified OE921/v1.66 image and the current physical keyboard. Do not apply this patch directly to the 100-key model, other models, or other firmware versions.
