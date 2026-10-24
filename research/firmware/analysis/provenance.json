@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-24",
+  "requested_change": {
+    "model": "OE921",
+    "version": "1.66",
+    "bluetooth_idle_minutes_before": 10,
+    "bluetooth_idle_minutes_after": 30,
+    "backlight_change_allowed": false,
+    "wake_or_reconnect_change_allowed": false,
+    "other_transport_change_allowed": false
+  },
+  "official_firmware_url": "https://www.lofree.tech/OE921/bin/cid01_mid01/CX53730_KB_OE921_V1.66_VID-05AC_PID-024F_1DBF7FB0_20250725_dll.bin",
+  "official_recovery_configuration_url": "https://www.lofree.tech/OE921/cfg.json",
+  "official_download_center_url": "https://www.lofree.co/pages/download-center",
+  "official_windows_folder_url": "https://www.dropbox.com/scl/fo/2581avtxvitvftsd7312f/AC-XHGb5oZKm3mPypP0pR10?rlkey=putg9j9gw9lou8mtwariog2xg&dl=1",
+  "official_windows_zip_sha256": "a7c0ad9a680086f946d0897ca0025f151eb3331163125b01c37cb08a5153ebc9",
+  "installer_file": "Lofree Key Mapper_v1.1.1.3_2025.09.15_setup.exe",
+  "installer_sha256": "2cd74f316945535823036784bf54fc92e4ebde5258860959d647c13001379580",
+  "web_container_sha256": "20521b83834e7352fd2bed040293a599d6e37c1d80df185d003502b8ed801246",
+  "windows_container_sha256": "3366d4919c75b2449a3aaea254fed38c621fb9f9983143d33882c5a92e8173d0",
+  "program_payload_equal": true,
+  "program_payload_sha256": "58c1c0374e7c6faba94eaf59ee3cbe4a36bca6f76aa82adbca2d60fd2828faec",
+  "container_different_byte_offsets": [
+    0,
+    21,
+    22
+  ],
+  "simple_codec_hypotheses": {
+    "tested_count": 9216,
+    "method": "Top-16 repeated 32-byte blocks; six assumed padding words; 32 rotations; XOR/rotate, add-before-rotate, add-after-rotate; heuristic Cortex-M SP/reset filter",
+    "candidates": 0,
+    "limitation": "仅启发式排除这些假设，不能证明不存在可解码方式或确认处理器架构"
+  },
+  "status": {
+    "sleep_logic_located": true,
+    "patched_image_created": true,
+    "hardware_commands_sent": true,
+    "firmware_flashing_attempted": true,
+    "sleep_logic_scope": "Main MCU idle counter; physical radio behavior unverified",
+    "codec_verified": true,
+    "device_check_verified": true,
+    "hardware_validated": false,
+    "flash_succeeded": true,
+    "normal_usb_returned": true,
+    "bluetooth_idle_hardware_validated": false
+  },
+  "toolchain_verification": "toolchain-verification.json",
+  "windows_dll_restoration": "hidusb-x64-inno-restoration.json",
+  "native_analysis": {
+    "input_sha256": "0cb20c33f490cbedbc3c78b018c85955322c40d494632c7bebcf86f10aef5ba8",
+    "ghidra_version": "12.1.3",
+    "rea_version": "6.7.0",
+    "functions_exported": 352,
+    "decompilation_failures": 0,
+    "output": "hidusb-x64-functions.c",
+    "output_sha256": "0b6c8c3b150671af0eceb632eb116a3fa815b308a15345e71505ca07302182b4",
+    "payload_copied_without_codec_in_traced_upgrade_path": true,
+    "payload_codec_identified": true,
+    "device_checksum_algorithm_identified": true
+  },
+  "firmware_analysis": {
+    "architecture": "RV32 with QingKe XW",
+    "cpu_alias_base": "0x1600",
+    "gp": "0x20000820",
+    "functions_decompiled": 259,
+    "decompilation_failures": 0,
+    "codec_evidence": "oe921-v166-codec.json",
+    "cross_version_checks": "codec-cross-validation.json",
+    "patch_manifest": "../../../output/patch-manifest.json",
+    "candidate_sha256": "525dacbcb3729adfcb0ca7e45ecaae12051ebb6ce1462142d496d7b16a66e250",
+    "xw_definition_sha256": "95fcab4f41c4e9db33cb10931ee7ccb885613ac96137a1b6bb8063621fbd8eb4"
+  },
+  "usb_enumeration": "usb-enumeration.json",
+  "flash_verification": "../../../output/flash-verification.json"
+}

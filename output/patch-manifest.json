@@ -1,0 +1,63 @@
+{
+  "status": "STATICALLY_VERIFIED_HARDWARE_UNTESTED",
+  "model": "OE921 Flow Lite 84",
+  "base_version_unchanged": "1.66",
+  "original_sha256": "20521b83834e7352fd2bed040293a599d6e37c1d80df185d003502b8ed801246",
+  "candidate_sha256": "525dacbcb3729adfcb0ca7e45ecaae12051ebb6ce1462142d496d7b16a66e250",
+  "original_decoded_sha256": "b6aaed7f03f44095ab9e3f961cc55b5db7ab94795d19425aa1ceb9910963a152",
+  "candidate_decoded_sha256": "fc708939cd93676715f62d84897b2cfbdceac8336ffb4c8dfe3354e1cefee548",
+  "candidate_length": 64628,
+  "changes": [
+    {
+      "cpu_address": "0x00008b88",
+      "payload_offset": 30088,
+      "container_offset": 38280,
+      "before": "1307c003",
+      "after": "1307400b",
+      "reason": "Bluetooth idle reload: 60 to 180 ten-second periods"
+    },
+    {
+      "cpu_address": "0x000092b8",
+      "payload_offset": 31928,
+      "container_offset": 40120,
+      "before": "13076003",
+      "after": "1307e00a",
+      "reason": "Compensate existing early low-power gate; keep elapsed trigger unchanged"
+    }
+  ],
+  "decoded_different_byte_offsets": [
+    30090,
+    30091,
+    31930,
+    31931
+  ],
+  "container_different_byte_offsets": [
+    0,
+    1,
+    482,
+    483,
+    484,
+    485,
+    38282,
+    38283,
+    40122,
+    40123
+  ],
+  "device_check_before": "d9cbe71e",
+  "device_check_after": "1967a126",
+  "header_checksum_after": "555524c5",
+  "backlight_timer_code_unchanged": true,
+  "wake_and_reconnect_code_unchanged": true,
+  "mode_zero_reload_unchanged": 6,
+  "mode_nonzero_reload_before": 60,
+  "mode_nonzero_reload_after": 180,
+  "ten_second_tick_reload_unchanged": 10000,
+  "early_gate_elapsed_ticks_unchanged": 60000,
+  "limitations": [
+    "Static verification establishes the main MCU counter, not physical Bluetooth radio behavior.",
+    "No firmware flash, hardware observation, full-device backup or recovery test performed.",
+    "The exact physical mode mapping and radio-side autonomous timeout need device validation."
+  ],
+  "status_scope": "Image build-time evidence; current hardware state is in flash-verification.json",
+  "hardware_verification_record": "flash-verification.json"
+}

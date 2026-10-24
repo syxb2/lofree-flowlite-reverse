@@ -1,0 +1,441 @@
+{
+  "audit_date": "2026-10-24",
+  "scope": "OE921 / v1.66；官方网页客户端静态配置分析",
+  "device_commands_sent": false,
+  "device_config_changed": false,
+  "firmware_downloaded_or_changed": false,
+  "keyboard_config_version": "1.1.0_8/8/15",
+  "oe921_metadata": {
+    "cid": 1,
+    "mid": 1,
+    "identity_basis": "官方型号表；未对实物发送身份查询",
+    "schema_keys": [
+      "mid",
+      "systems",
+      "layouts",
+      "keys",
+      "lightEffect",
+      "upgrade"
+    ],
+    "default_off_time": 0,
+    "upgrade_metadata": {
+      "compel": [
+        "v1.65"
+      ],
+      "device": {
+        "version": "v1.66",
+        "link": "/cid01_mid01/CX53730_KB_OE921_V1.66_VID-05AC_PID-024F_1DBF7FB0_20250725_dll.bin"
+      }
+    },
+    "home_upgrade_metadata": {
+      "device": {
+        "version": "v1.64",
+        "link": "/KB_RGB_V1.64_VID-05AC_PID-024F_0101_8EEBFBEA_20241122.bin"
+      }
+    }
+  },
+  "keyboard_address_map": {
+    "CustomLightMaps": 6176,
+    "CurrentLightMode": 8496,
+    "LightState": 8498,
+    "OffLightTime": 8500,
+    "EffectPara": 8544,
+    "ReportRate": 9408,
+    "BootAnimation": 9410,
+    "BootAnimationState": 9412,
+    "ForbidKeyFunction": 9414,
+    "CurrentSystem": 9416,
+    "FNLockState": 9418,
+    "FullKeyLockState": 9420,
+    "MusicState": 9422,
+    "ScanKeyTime": 9424,
+    "MultikeyType": 9426,
+    "WASDKey": 9428,
+    "Macro": 10064
+  },
+  "mouse_sleep_address": 173,
+  "device_commands": {
+    "EncryptionData": 1,
+    "PCDriverStatus": 2,
+    "DeviceOnLine": 3,
+    "BatteryLevel": 4,
+    "DongleEnterPair": 5,
+    "GetPairState": 6,
+    "WriteFlashData": 7,
+    "ReadFlashData": 8,
+    "ClearSetting": 9,
+    "StatusChanged": 10,
+    "GetCurrentConfig": 14,
+    "SetCurrentConfig": 15,
+    "ReadVersionID": 18,
+    "Set4KDongleRGB": 20,
+    "Get4KDongleRGBValue": 21,
+    "SetLongRangeMode": 22,
+    "GetLongRangeMode": 23,
+    "SetDongleRGBBarMode": 24,
+    "GetDongleRGBBarMode": 25,
+    "GetDongleVersion": 29
+  },
+  "keyboard_setter_exports": [
+    "Set_KB_BootAnimation",
+    "Set_KB_BootAnimationState",
+    "Set_KB_CurrentSystem",
+    "Set_KB_CustomLight",
+    "Set_KB_CustomLightBrightness",
+    "Set_KB_CustomLightColor",
+    "Set_KB_CustomLightRunning",
+    "Set_KB_CustomLightSpeed",
+    "Set_KB_CustomLightStream",
+    "Set_KB_CustomLightType",
+    "Set_KB_FNLockState",
+    "Set_KB_ForbidKeyFunction",
+    "Set_KB_FullKeyLockState",
+    "Set_KB_KeyFunction",
+    "Set_KB_KeyRestore",
+    "Set_KB_LightEffectBrightness",
+    "Set_KB_LightEffectColor",
+    "Set_KB_LightEffectColorIndex",
+    "Set_KB_LightEffectSpeed",
+    "Set_KB_LightMode",
+    "Set_KB_LightState",
+    "Set_KB_Macro",
+    "Set_KB_MultikeyType",
+    "Set_KB_MusicState",
+    "Set_KB_OffLightTime",
+    "Set_KB_ReportRate",
+    "Set_KB_ScanKeyTime",
+    "Set_KB_WASDKey"
+  ],
+  "ui_labels": {
+    "zh-CN": "休眠时间",
+    "en": "Sleep time"
+  },
+  "off_time_options": [
+    {
+      "value": 1,
+      "option": "10秒"
+    },
+    {
+      "value": 3,
+      "option": "30秒"
+    },
+    {
+      "value": 6,
+      "option": "1分钟"
+    },
+    {
+      "value": 12,
+      "option": "2分钟"
+    },
+    {
+      "value": 30,
+      "option": "5分钟"
+    },
+    {
+      "value": 60,
+      "option": "10分钟"
+    },
+    {
+      "value": 90,
+      "option": "15分钟"
+    }
+  ],
+  "special_key_actions": [
+    {
+      "value": "0x0017",
+      "label": "恢复出厂设置"
+    },
+    {
+      "value": "0x0000",
+      "label": "蓝牙设备1"
+    },
+    {
+      "value": "0x0001",
+      "label": "蓝牙设备2"
+    },
+    {
+      "value": "0x0002",
+      "label": "蓝牙设备3"
+    },
+    {
+      "value": "0x0003",
+      "label": "2.4G通道"
+    },
+    {
+      "value": "0x0004",
+      "label": "灯光模式循环加"
+    },
+    {
+      "value": "0x0005",
+      "label": "灯光模式加"
+    },
+    {
+      "value": "0x0006",
+      "label": "灯光模式减"
+    },
+    {
+      "value": "0x0007",
+      "label": "灯光颜色循环"
+    },
+    {
+      "value": "0x0008",
+      "label": "灯光颜色加"
+    },
+    {
+      "value": "0x0009",
+      "label": "灯光颜色减"
+    },
+    {
+      "value": "0x000A",
+      "label": ""
+    },
+    {
+      "value": "0x000B",
+      "label": "灯光速度循环"
+    },
+    {
+      "value": "0x000C",
+      "label": "灯光速度加"
+    },
+    {
+      "value": "0x000D",
+      "label": "灯光速度减"
+    },
+    {
+      "value": "0x000E",
+      "label": "灯光亮度循环"
+    },
+    {
+      "value": "0x000F",
+      "label": "灯光亮度加"
+    },
+    {
+      "value": "0x0010",
+      "label": "灯光亮度减"
+    },
+    {
+      "value": "0x0011",
+      "label": "查看电量"
+    },
+    {
+      "value": "0x0012",
+      "label": "灯光开关"
+    },
+    {
+      "value": "0x0013",
+      "label": "FN Lock"
+    },
+    {
+      "value": "0x0014",
+      "label": "蓝牙通道"
+    },
+    {
+      "value": "0x0015",
+      "label": "有线通道"
+    },
+    {
+      "value": "0x0016",
+      "label": "清除蓝牙记录"
+    },
+    {
+      "value": "0x0017",
+      "label": "恢复初始化设置"
+    },
+    {
+      "value": "0x0018",
+      "label": "windows系统"
+    },
+    {
+      "value": "0x0019",
+      "label": "mac系统"
+    },
+    {
+      "value": "0x001A",
+      "label": "android系统"
+    },
+    {
+      "value": "0x001B",
+      "label": "iOS系统"
+    },
+    {
+      "value": "0x001C",
+      "label": "禁用ALT+TAB键"
+    },
+    {
+      "value": "0x001D",
+      "label": "禁用ALT+FN键"
+    },
+    {
+      "value": "0x001E",
+      "label": "禁用SHIFT+TAB键"
+    },
+    {
+      "value": "0x001F",
+      "label": "禁用WIN键"
+    },
+    {
+      "value": "0x0020",
+      "label": "矩阵其他常亮灯"
+    },
+    {
+      "value": "0x0021",
+      "label": "禁用WIN+APP键"
+    },
+    {
+      "value": "0x0022",
+      "label": "全键盘锁键"
+    },
+    {
+      "value": "0x0023",
+      "label": "Win系统的Copilot键"
+    },
+    {
+      "value": "0x0024",
+      "label": "灯带模式开关"
+    },
+    {
+      "value": "0x0025",
+      "label": "灯带模式循环"
+    },
+    {
+      "value": "0x0026",
+      "label": "灯带模式加"
+    },
+    {
+      "value": "0x0027",
+      "label": "灯带模式减"
+    },
+    {
+      "value": "0x0028",
+      "label": "灯带亮度循环"
+    },
+    {
+      "value": "0x0029",
+      "label": "灯带亮度加"
+    },
+    {
+      "value": "0x002A",
+      "label": "灯带亮度减"
+    },
+    {
+      "value": "0x002B",
+      "label": "灯带速度循环"
+    },
+    {
+      "value": "0x002C",
+      "label": "灯带速度加"
+    },
+    {
+      "value": "0x002D",
+      "label": "灯带速度减"
+    },
+    {
+      "value": "0x002E",
+      "label": "灯带亮度循环"
+    },
+    {
+      "value": "0x002F",
+      "label": "禁用WIN键"
+    },
+    {
+      "value": "0x0030",
+      "label": "灯带亮度减"
+    },
+    {
+      "value": "0x0031",
+      "label": "灯效模式循环减"
+    }
+  ],
+  "evidence": [
+    {
+      "marker": "de.$t(\"keyboard.SleepTime\")",
+      "character_offset": 727513,
+      "snippet": ",b(Fe,null,ht(M.value,(pe,$e)=>(m(),b(\"li\",{class:U({active:d(t)==$e}),key:pe,onClick:fe=>X($e,pe)},oe(pe.name),11,_Y))),128))])]),p(\"div\",hY,[p(\"div\",mY,[p(\"span\",gY,oe(de.$t(\"keyboard.SleepTime\")),1)]),ae(ye,{modelValue:d(s),\"onUpdate:modelValue\":xe[3]||(xe[3]=pe=>Ke(s)?s.value=pe:null),list:T.value,onChange:H,class:\"min-width\"},null,8,[\"modelValue\",\"list\"])]),p("
+    },
+    {
+      "marker": "async function H(de){await Ee.Set_KB_OffLightTime(de)",
+      "character_offset": 725241,
+      "snippet": ");return pe||de.slice(1).includes(xe.version)});Te(v,de=>{tr.value===!1&&de&&j.value&&W(_.value)});async function X(de,xe){await Ee.Set_KB_ReportRate(xe.rate),t.value=de}async function H(de){await Ee.Set_KB_OffLightTime(de)&&(s.value=de)}async function se(){await Ee.Device_Restore()}function Z(){const de=Ee.deviceInfo;z(de)}function z(de){const xe=o.deviceCfg.upgrade;let ye=!1;xe!=null&&(de"
+    },
+    {
+      "marker": "Set_KB_OffLightTime:oy",
+      "character_offset": 137139,
+      "snippet": "ightSpeed:_5,Set_MS_MovingOffState:C5,Set_MS_LightOffTime:y5,Set_MS_LightPowerSave:c5,Set_KB_KeyFunction:ty,Set_KB_KeyRestore:ny,Set_KB_LightMode:ry,Set_KB_LightState:ay,Set_KB_OffLightTime:oy,Set_KB_LightEffectColorIndex:sy,Set_KB_LightEffectSpeed:ly,Set_KB_LightEffectBrightness:iy,Set_KB_LightEffectColor:uy,Set_KB_CustomLight:$o,Set_KB_CustomLightType:cy,Set"
+    },
+    {
+      "marker": "async function oy(e)",
+      "character_offset": 130342,
+      "snippet": "eyboard.keys[e][t]=n}return r}async function ry(e){var t=await De();t&&await it(Pe.CurrentLightMode,e)}async function ay(e){var t=await De();t&&await it(Pe.LightState,e)}async function oy(e){var t=await De();t&&(await it(Pe.OffLightTime,e),L.keyboard.lightEffect.offTime=e)}async function I2(e){let t=Uint8Array.of(8,0,0,0);t[0]=L.keyboard.lightEffect.effects["
+    },
+    {
+      "marker": "L.keyboard.lightEffect.offTime=be[Pe.OffLightTime]",
+      "character_offset": 127119,
+      "snippet": "ush(c)}}async function H5(){await j5(),await ql(Pe.EffectPara,9376),L.keyboard.lightEffect.mode=be[Pe.CurrentLightMode],L.keyboard.lightEffect.state=be[Pe.LightState]==1,L.keyboard.lightEffect.offTime=be[Pe.OffLightTime],L.keyboard.lightEffect.effects=[];for(var e=0;e<16;e++){var t={colorIndex:0,brightness:3,speed:3,colors:[]},n=Pe.EffectPara+32*e;t.colorIndex=be[n],t.speed=be[n+1],t.bri"
+    },
+    {
+      "marker": "async function y5(e)",
+      "character_offset": 122049,
+      "snippet": "OD,e),t}async function m5(e){var t=await De();return t==!0&&await it(Ve.DebounceTime,e),t}async function g5(e){var t=await De();return t==!0&&await it(Ve.MotionSync,e),t}async function y5(e){var t=await De();return t==!0&&await it(Ve.SleepTime,e),L.mouseCfg.sleepTime=e,t}async function b5(e){var t=await De();return t==!0&&await it(Ve.Angle,e),L.mouseCfg.angl"
+    },
+    {
+      "marker": "async function Ug(e)",
+      "character_offset": 112255,
+      "snippet": "async function Ng(e){L.dongleRGBBar.color=e,await Gl()}async function Hg(e){L.dongleRGBBar.speed=e,await Gl()}async function zg(e){L.dongleRGBBar.brightness=e,await Gl()}async function Ug(e){L.dongleRGBBar.time=e,await Gl()}async function Kg(){await Yr(tt.GetDongleRGBBarMode)}async function Yv(){await Yr(tt.GetDongleVersion)}async function $t(e,t){let n=Uint"
+    },
+    {
+      "marker": "function Iy(e){fa=e}",
+      "character_offset": 136139,
+      "snippet": "y,h[21]=85-h[20],await $t(Pe.ReportRate,h);for(var r=0;r<n.length;r++)n[r]&&await o6(r,e.macros[r]);L.keyboard=e,L.keyboard.importingProfile=!1}cr=!0}function Ly(e){Nn=e}function Iy(e){fa=e}const Ee={Request_Device:gg,Device_Connect:Nv,Get_HistoryDevicesInfo:yg,Get_Current_Device_Online:bg,Add_Listen_HID_Events:wg,Remove_Listen_HID_Events:Cg,Device_Reconnect"
+    },
+    {
+      "marker": "Ee.Set_DriverOnline(D.driverOnline)",
+      "character_offset": 665352,
+      "snippet": ";for(var Y=0,Q=0;Q<D.keys.length;Q++)Y=D.keys[Q].index>Y?D.keys[Q].index:Y;Ee.deviceInfo.mouseCfg.keysCount=Y+1,Ee.deviceInfo.mouseCfg.defaultLongDistance=D.longDistance,Ee.Set_DriverOnline(D.driverOnline),r.deviceCfg=D}else Ee.deviceInfo.keyboard.systems=D.systems,Ee.deviceInfo.keyboard.layouts=D.layouts,r.deviceCfg=D;console.log(r.deviceCfg,\"-----------------------------"
+    }
+  ],
+  "sources": [
+    {
+      "file": "index-BTVblIUr.js",
+      "url": "https://www.lofree.tech/home/assets/index-BTVblIUr.js",
+      "bytes": 590728,
+      "sha256": "dbec61a52a85d2739a00c596bbeb3506a2f4869a65e8a078376fa0f2a572f1c5"
+    },
+    {
+      "file": "cfg.json",
+      "url": "https://www.lofree.tech/home/cfg.json",
+      "bytes": 457625,
+      "sha256": "3b9c365258018a5fc6de07105d110c17ea076ffe1e53d00ca889896356e5acd2"
+    },
+    {
+      "file": "keyboard.html",
+      "url": "https://www.lofree.tech/keyboard/",
+      "bytes": 647,
+      "sha256": "a3bb1b40593ac659b806722b64b2fb30b041b29c5d305827fd24081ee9ff9248"
+    },
+    {
+      "file": "keyboard-index-C3SCpSMc.js",
+      "url": "https://www.lofree.tech/keyboard/assets/index-C3SCpSMc.js",
+      "bytes": 735103,
+      "sha256": "538c201900cdf4cfb223f13ecf0ffe4323af293b80d31c05cad1b3046505f997"
+    },
+    {
+      "file": "keyboard-cfg.json",
+      "url": "https://www.lofree.tech/keyboard/cfg.json",
+      "bytes": 458382,
+      "sha256": "a33a1b32889d48dc578d2e7a59f42b6de3f5545c821a71e2f3e9501cecd7eec3"
+    },
+    {
+      "file": "keyboard-zh-CN.json",
+      "url": "https://www.lofree.tech/keyboard/lang/zh-CN.json",
+      "bytes": 18321,
+      "sha256": "7a5e9a80186eb821106ecba6f442c1fd37244927ea8fdb95d861242f9fc492e3"
+    },
+    {
+      "file": "keyboard-en.json",
+      "url": "https://www.lofree.tech/keyboard/lang/en.json",
+      "bytes": 19000,
+      "sha256": "592f6208b5f7deea15b935cc980383ad3de5e462c661eb95f96d56ddf170b564"
+    }
+  ],
+  "conclusion": "本次检查的官方客户端中未发现独立的键盘蓝牙休眠参数；不能据此证明固件内部不存在该参数。"
+}

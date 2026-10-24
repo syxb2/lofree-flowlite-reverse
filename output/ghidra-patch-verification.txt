@@ -1,0 +1,211 @@
+Analysis ELF SHA256: be6637dfdf9ae400d1c634b75a37c67a784dc3023423464a4909ae1348a279f7
+Language: RISCV:LE:32:OE921_XW
+Verified instructions: 0x8b88 li a4,180; 0x92b8 li a4,174
+
+void FUN_ram_00008b80(void)
+
+{
+  gp = &observed_global_pointer;
+  DAT_ram_2000011f = 6;
+  if (DAT_ram_2000032e != '\0') {
+    DAT_ram_2000011f = 0xb4;
+  }
+  DAT_ram_2000011c = 10000;
+  DAT_ram_2000011e = DAT_ram_2000011f;
+  DAT_ram_20000118 = 0;
+  return;
+}
+
+
+
+/* WARNING: Inlined function: FUN_ram_00001708 */
+/* WARNING: Inlined function: FUN_ram_00001740 */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_ram_0000917c(void)
+
+{
+  uint uVar1;
+  int iVar2;
+  
+  gp = &observed_global_pointer;
+  uVar1 = (uint)DAT_ram_2000032e;
+  if (uVar1 < 6) {
+    iVar2 = (uVar1 + 3) * 2;
+    *(undefined1 *)(iVar2 + 0x2000353d) = 0x55;
+    (&DAT_ram_2000353c)[iVar2] = 0;
+    FUN_ram_0000c2b4((uVar1 + 0x1f9b) * 2,2);
+  }
+  FUN_ram_00008b80();
+  FUN_ram_0000be50(&DAT_ram_20003170,0x26e);
+  uRam2000352b = 1;
+  DAT_ram_2000018a = 0;
+  DAT_ram_20000190 = 0;
+  DAT_ram_20000192 = (ushort)(byte)PTR_DAT_ram_2000016c_ram_20000040[4];
+  if (cRam20000114 == '\0') {
+    uRam20000edc = 1;
+  }
+  else {
+    cRam20000114 = '\0';
+  }
+  DAT_ram_20000ee2 = 1;
+  if ((byte)(DAT_ram_2000032e - 1) < 5) {
+    FUN_ram_000039fc(&DAT_ram_200003b8,0x58,2);
+  }
+  while( true ) {
+    FUN_ram_0000caba(*PTR_DAT_ram_20004390_ram_20000044);
+    FUN_ram_0000bd0e();
+    if (DAT_ram_20000198 != '\0') {
+      DAT_ram_20000198 = '\0';
+      FUN_ram_00008bc4();
+    }
+    if ((DAT_ram_2000012b != '\0') && (DAT_ram_200034e0 == '\0')) {
+      DAT_ram_200000ba = 0;
+      return;
+    }
+    if ((DAT_ram_2000032e < 6) && (cRam20000116 == '\0')) {
+      if ((DAT_ram_20000118 != '\0') && (DAT_ram_200034e0 == '\0' && DAT_ram_20001ad1 == '\0')) {
+        if (DAT_ram_2000032e != 0) {
+          DAT_ram_200000ba = 0;
+          return;
+        }
+        DAT_ram_200000ba = 0;
+        uRam20000112 = 1;
+        return;
+      }
+    }
+    else {
+      cRam20000116 = '\0';
+    }
+    if (DAT_ram_200000ba != '\x03') {
+      return;
+    }
+    if (5 < DAT_ram_2000032e) break;
+    if (cRam200000ed != '\0') {
+      FUN_ram_00008b80();
+    }
+    if (DAT_ram_200034e0 != '\0') {
+      FUN_ram_00008b80();
+    }
+    FUN_ram_000087b0();
+    if ((((byte)(DAT_ram_2000032e - 1) < 5) && (DAT_ram_2000011e < 0xaf)) &&
+       (iVar2 = FUN_ram_00005f14(&DAT_ram_20001ad0), iVar2 == 0)) {
+      DAT_ram_200000ba = '\0';
+      DAT_ram_20000113 = 1;
+    }
+    if (DAT_ram_200000f6 != '\0') {
+      FUN_ram_000084d2();
+    }
+    FUN_ram_00008590();
+    do {
+      if (DAT_ram_20000198 != '\0') {
+        DAT_ram_20000198 = '\0';
+        if (DAT_ram_20001ad1 == '\0') {
+          _DAT_ram_e000ed10 = _DAT_ram_e000ed10 & 0xfffffff7;
+          wfi();
+        }
+        FUN_ram_00008bc4();
+      }
+    } while (DAT_ram_2000018f == '\0');
+    DAT_ram_2000018f = '\0';
+  }
+  return;
+}
+
+
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_ram_0000c772(void)
+
+{
+  bool bVar1;
+  char cVar2;
+  uint uVar3;
+  
+  gp = &observed_global_pointer;
+  if ((_DAT_ram_40000410 & 1) != 0) {
+    _DAT_ram_40000410 = 0xfffe;
+    DAT_ram_20000198 = 1;
+    if ((DAT_ram_2000018c != '\0') &&
+       (DAT_ram_2000018c = DAT_ram_2000018c + -1, DAT_ram_2000018c == '\0')) {
+      if (DAT_ram_2000018e == '\x01') {
+        DAT_ram_2000018e = '\x02';
+      }
+      DAT_ram_2000018f = 1;
+    }
+    if (DAT_ram_2000008d != '\0') {
+      DAT_ram_2000008d = DAT_ram_2000008d + -1;
+    }
+    if ((DAT_ram_200000f4 != '\0') &&
+       (DAT_ram_2000010a = DAT_ram_2000010a + -1, DAT_ram_2000010a == 0)) {
+      DAT_ram_200000f4 = '\0';
+      DAT_ram_200000f5 = 1;
+    }
+    if ((DAT_ram_2000008a != '\0') &&
+       (DAT_ram_20000020 = DAT_ram_20000020 + -1, DAT_ram_20000020 == 0)) {
+      DAT_ram_2000008b = 1;
+    }
+    DAT_ram_2000011c = DAT_ram_2000011c + -1;
+    if (((DAT_ram_2000011c == 0) && (DAT_ram_2000011c = 10000, DAT_ram_2000011e != '\0')) &&
+       (cVar2 = DAT_ram_2000011e + -1, bVar1 = DAT_ram_2000011e == '\x01', DAT_ram_2000011e = cVar2,
+       bVar1)) {
+      DAT_ram_20000118 = 1;
+    }
+    DAT_ram_20000190 = DAT_ram_20000190 + 1;
+    if (10000 < DAT_ram_20000190) {
+      DAT_ram_20000190 = 0;
+      DAT_ram_20000192 = DAT_ram_20000192 + -1;
+      if (DAT_ram_20000192 == 0) {
+        DAT_ram_2000018a = 1;
+        DAT_ram_2000018b = 1;
+      }
+    }
+    DAT_ram_20000194 = DAT_ram_20000194 + 1;
+    if (DAT_ram_20000196 < DAT_ram_20000194) {
+      DAT_ram_20000194 = 0;
+      DAT_ram_2000018d = 1;
+    }
+    if (((DAT_ram_20000153 != '\0') && (DAT_ram_20000154 != 0)) &&
+       (DAT_ram_20000154 = DAT_ram_20000154 + -1, DAT_ram_20000154 == 0)) {
+      DAT_ram_20000156 = 1;
+    }
+    if (_DAT_ram_20000eb5 != 0) {
+      _DAT_ram_20000eb5 =
+           CONCAT11((char)(_DAT_ram_20000eb5 - 1 >> 8),
+                    (char)((_DAT_ram_20000eb5 - 1) * 0x10000 >> 0x10));
+      if (_DAT_ram_20000eb5 == 0) {
+        DAT_ram_20000eb2 = 0;
+        DAT_ram_20000eb3 = 0;
+        if (DAT_ram_200003c1 != '\0') {
+          DAT_ram_200003c1 = DAT_ram_200003c1 + -1;
+          DAT_ram_20000eb4 = 1;
+        }
+        if (DAT_ram_20000ebb != '\0') {
+          DAT_ram_20000ebb = '\0';
+          DAT_ram_200000b5 = 0;
+        }
+      }
+    }
+    if (_DAT_ram_20000eb9 != 0) {
+      _DAT_ram_20000eb9 =
+           CONCAT11((char)(_DAT_ram_20000eb9 - 1 >> 8),
+                    (char)((_DAT_ram_20000eb9 - 1) * 0x10000 >> 0x10));
+      if (_DAT_ram_20000eb9 == 0) {
+        DAT_ram_20000eb7 = 0;
+        DAT_ram_20000eb8 = 0;
+      }
+    }
+    if ((DAT_ram_2000016a != '\0') && (_DAT_ram_2000015f != 0)) {
+      uVar3 = _DAT_ram_2000015f - 1 & 0xffff;
+      _DAT_ram_2000015f =
+           CONCAT11((char)(uVar3 >> 8),(char)((_DAT_ram_2000015f - 1) * 0x10000 >> 0x10));
+      if (uVar3 == 0) {
+        DAT_ram_20000169 = 1;
+      }
+    }
+  }
+  return;
+}
+
+

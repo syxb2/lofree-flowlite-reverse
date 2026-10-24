@@ -1,0 +1,29 @@
+{
+  "status": "PASS_OFFLINE_ONLY",
+  "candidate_sha256": "c10ffdff79e7b55a1b3f688d5d83d600ba38a8cf5f32855276b9204c87a063dd",
+  "mode_values_executed_per_image": 256,
+  "command_call_modes": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "old_call_arguments": [
+    "0x200003b8",
+    "0x58",
+    "0x2"
+  ],
+  "new_call_arguments": [
+    "0x200003b8",
+    "0x8",
+    "0x7"
+  ],
+  "changed_program_bytes_from_base": 2,
+  "all_other_program_bytes_identical": true,
+  "header_checksum_verified": true,
+  "device_crc_bitwise_verified": true,
+  "radio_firmware_or_bus_emulated": false,
+  "parameter_units_confirmed": false,
+  "device_io_performed": false
+}

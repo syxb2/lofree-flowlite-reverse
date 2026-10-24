@@ -1,0 +1,11 @@
+{
+  "title": "Lofree HYPACE",
+  "web": "http://www.lofree.com.cn/",
+  "version": "1.1.0",
+  "language": ["zh-CN", "zh-TW", "en", "ja", "de","fr","es","ko","ru","it"],
+  "debug": {
+    "log": true,
+    "batteryPolling": true
+  },
+  "link": "bin/cid01_mid01/CX53730_KB_OE921_V1.66_VID-05AC_PID-024F_1DBF7FB0_20250725_dll.bin"
+}

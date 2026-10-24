@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-24",
+  "source": "ioreg IOUSB read-only enumeration",
+  "product": "Air84@Lofree",
+  "manufacturer": "Compx",
+  "vendor_id": "0x05ac",
+  "product_id": "0x024f",
+  "bcdDevice": "0x0166",
+  "matches_expected_normal_endpoint": true,
+  "matches_expected_firmware_version": true,
+  "hid_commands_sent": false,
+  "boot_mode_entered": false,
+  "physical_cid_mid_read": false
+}

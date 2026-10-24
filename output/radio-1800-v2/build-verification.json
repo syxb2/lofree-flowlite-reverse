@@ -1,0 +1,8 @@
+{
+  "reproducible_from_original_and_two_builders": true,
+  "original_and_prior_candidate_unchanged": true,
+  "wrong_original_already_patched_and_corrupted_inputs_rejected": true,
+  "program_different_bytes_from_base": 2,
+  "container_different_bytes_from_base": 8,
+  "device_io_performed": false
+}

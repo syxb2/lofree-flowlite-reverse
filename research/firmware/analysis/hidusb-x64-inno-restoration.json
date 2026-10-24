@@ -1,0 +1,26 @@
+{
+  "input": "research/firmware/vendor/8664-61db43c-HIDUsb.dll",
+  "output": "research/firmware/vendor/HIDUsb-x64-inno-restored.dll",
+  "input_sha256": "26cb4bc24304c590798efea39ed8090af5955763783afb3ad64b009a64653743",
+  "output_sha256": "0cb20c33f490cbedbc3c78b018c85955322c40d494632c7bebcf86f10aef5ba8",
+  "length": 144896,
+  "changed_bytes": 5415,
+  "roundtrip_ok": true,
+  "installer_file_checksum_verified": true,
+  "source": "https://github.com/jrsoftware/issrc/blob/main/Projects/Src/Compression.Base.pas",
+  "installer_verification": {
+    "installer_sha256": "2cd74f316945535823036784bf54fc92e4ebde5258860959d647c13001379580",
+    "verified_crc_chunks": 14,
+    "file_location_records": 789,
+    "matches": [
+      {
+        "record_index": 408,
+        "stream_offset": 102609980,
+        "size": 144896,
+        "flags": 144,
+        "call_filter_flag": true,
+        "sha1": "514e36c1e76fab3ffe9bf67cc86abc3a9bc669ab"
+      }
+    ]
+  }
+}

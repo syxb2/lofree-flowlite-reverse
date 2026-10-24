@@ -1,0 +1,13 @@
+research/firmware/analysis/oe921-v166-decoded.bin mode=0 expiry_ticks=60000 early_gate_ticks=60000 PASS
+research/firmware/analysis/oe921-v166-decoded.bin mode=1 expiry_ticks=600000 early_gate_ticks=60000 PASS
+research/firmware/analysis/oe921-v166-decoded.bin mode=2 expiry_ticks=600000 early_gate_ticks=60000 PASS
+research/firmware/analysis/oe921-v166-decoded.bin mode=3 expiry_ticks=600000 early_gate_ticks=60000 PASS
+research/firmware/analysis/oe921-v166-decoded.bin mode=4 expiry_ticks=600000 early_gate_ticks=60000 PASS
+research/firmware/analysis/oe921-v166-decoded.bin mode=5 expiry_ticks=600000 early_gate_ticks=60000 PASS
+output/OE921_v1.66_BT_idle_30min.decoded.analysis-only.bin mode=0 expiry_ticks=60000 early_gate_ticks=60000 PASS
+output/OE921_v1.66_BT_idle_30min.decoded.analysis-only.bin mode=1 expiry_ticks=1800000 early_gate_ticks=60000 PASS
+output/OE921_v1.66_BT_idle_30min.decoded.analysis-only.bin mode=2 expiry_ticks=1800000 early_gate_ticks=60000 PASS
+output/OE921_v1.66_BT_idle_30min.decoded.analysis-only.bin mode=3 expiry_ticks=1800000 early_gate_ticks=60000 PASS
+output/OE921_v1.66_BT_idle_30min.decoded.analysis-only.bin mode=4 expiry_ticks=1800000 early_gate_ticks=60000 PASS
+output/OE921_v1.66_BT_idle_30min.decoded.analysis-only.bin mode=5 expiry_ticks=1800000 early_gate_ticks=60000 PASS
+Actual reload/ISR/gate machine-code execution passed; physical radio is not emulated.

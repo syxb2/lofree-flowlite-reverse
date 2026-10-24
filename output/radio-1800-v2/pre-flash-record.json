@@ -1,0 +1,15 @@
+{
+  "action": "User authorized flashing the radio1800 candidate",
+  "image": "OE921_v1.66_BT_idle_30min_radio1800_UNTESTED.bin",
+  "candidate_sha256": "c10ffdff79e7b55a1b3f688d5d83d600ba38a8cf5f32855276b9204c87a063dd",
+  "source_backup": "output/backups/pre-radio1800-flash/OE921Flash.swift",
+  "old_binary_preserved": ".cache/OE921Flash",
+  "new_binary": ".cache/OE921Flash-radio1800",
+  "pre_flash_observed_identity": {
+    "name": "Air84@Lofree",
+    "vid": 1452,
+    "pid": 591,
+    "version": 358,
+    "location": 17825792
+  }
+}

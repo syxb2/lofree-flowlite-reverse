@@ -1,0 +1,154 @@
+{
+  "healthy": true,
+  "environment_healthy": false,
+  "scope": {
+    "mode": "explicit",
+    "clients": [],
+    "providers": [
+      "ghidra"
+    ],
+    "skill": false,
+    "target": null
+  },
+  "scope_checks": [
+    {
+      "name": "node",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "26.12.1",
+      "details": {
+        "runtime": "node",
+        "version": "26.12.1"
+      }
+    },
+    {
+      "name": "ghidra",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra"
+    },
+    {
+      "name": "ghidra-platform",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "darwin"
+    },
+    {
+      "name": "ghidra-architecture",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "arm64"
+    },
+    {
+      "name": "ghidra-installation",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra/Ghidra/application.properties"
+    },
+    {
+      "name": "ghidra-version",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "12.1.3; compatible 12.1.x release (verified build 12.1.4)"
+    },
+    {
+      "name": "ghidra-headless",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra/support/analyzeHeadless"
+    },
+    {
+      "name": "ghidra-native_decompiler",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64"
+    },
+    {
+      "name": "ghidra-java",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "21.0.13.0.2; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.13.0.2/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer"
+    }
+  ],
+  "providerInspections": [
+    {
+      "id": "ghidra",
+      "configured": true,
+      "available": true,
+      "providerVersion": "12.1.3",
+      "registrationEnvironment": {
+        "GHIDRA_INSTALL_DIR": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra",
+        "JAVA_HOME": "/opt/homebrew/Cellar/openjdk@21/21.0.13.0.2/libexec/openjdk.jdk/Contents/Home"
+      },
+      "checks": [
+        {
+          "name": "configuration",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "platform",
+          "ok": true,
+          "code": null,
+          "detail": "darwin",
+          "remediation": null,
+          "classification": "unsupported_host"
+        },
+        {
+          "name": "architecture",
+          "ok": true,
+          "code": null,
+          "detail": "arm64",
+          "remediation": null,
+          "classification": "unsupported_host"
+        },
+        {
+          "name": "installation",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra/Ghidra/application.properties",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "version",
+          "ok": true,
+          "code": null,
+          "detail": "12.1.3; compatible 12.1.x release (verified build 12.1.4)",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "headless",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra/support/analyzeHeadless",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "native_decompiler",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/baijiale/Code/lofree-flowlite-reverse/.tools/ghidra/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "java",
+          "ok": true,
+          "code": null,
+          "detail": "21.0.13.0.2; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.13.0.2/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer",
+          "remediation": null,
+          "classification": "config_drift"
+        }
+      ]
+    }
+  ],
+  "native_decompiler_sha256": "0bc01f009db2ca184011ce65f6b27f1469d0a3eda504e49e6055dc5865bb014b",
+  "compiled_in_project": true,
+  "actual_decompile_evidence": "rea-UsbUpgrade_Start.json"
+}

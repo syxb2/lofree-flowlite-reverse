@@ -1,0 +1,50 @@
+[
+  {
+    "file": "embedded-4ccd7a1-v157.bin",
+    "decoded_sha256": "ee806d7cff7fdb69046089a76e27552e5b1bfc75a3c16bb4c9002be84df8a16d",
+    "check": "29bfc3be",
+    "verified": true
+  },
+  {
+    "file": "embedded-4cdd431-v157.bin",
+    "decoded_sha256": "77f4e5f309435078240e89c8638ed2767859d8ce89d6bd5af834bbd4f10fd88e",
+    "check": "288f8cd1",
+    "verified": true
+  },
+  {
+    "file": "embedded-4ced0bd-v158.bin",
+    "decoded_sha256": "c18f2cbe65584fe53d4b9594a7e4905a3b23ebad3d6082b35153739ccb2c2c69",
+    "check": "39de184c",
+    "verified": true
+  },
+  {
+    "file": "embedded-4cfcd4d-v158.bin",
+    "decoded_sha256": "f42d51fec9a049abcd20ca2f6caa08214b3ef9ad201dc6379ab5c43813efd68c",
+    "check": "56ddfc01",
+    "verified": true
+  },
+  {
+    "file": "embedded-4d0c9e1-v158.bin",
+    "decoded_sha256": "7da16bfe8bebbc3aa82eaf389b4815ace98a8a27a2cca4ee92c488bab25dd55e",
+    "check": "1ed964ec",
+    "verified": true
+  },
+  {
+    "file": "embedded-4d1c671-v159.bin",
+    "decoded_sha256": "14431af9816ab47c2d545181ae2ab8724a62ec40c1d2b086c1541569070a0c21",
+    "check": "5d06566a",
+    "verified": true
+  },
+  {
+    "file": "embedded-4d2c305-v166.bin",
+    "decoded_sha256": "b6aaed7f03f44095ab9e3f961cc55b5db7ab94795d19425aa1ceb9910963a152",
+    "check": "d9cbe71e",
+    "verified": true
+  },
+  {
+    "file": "embedded-4d3bf79-v168.bin",
+    "decoded_sha256": "c262e68a61c0e147dca75fce15d689906c89d4fb2dec9a4e134f4eff1b6cbf15",
+    "check": "e8a9767a",
+    "verified": true
+  }
+]

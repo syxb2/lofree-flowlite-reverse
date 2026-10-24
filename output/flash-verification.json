@@ -1,0 +1,38 @@
+{
+  "status": "FLASH_SUCCEEDED_NORMAL_USB_RETURNED_IDLE_TIMING_UNTESTED",
+  "firmware_sha256": "525dacbcb3729adfcb0ca7e45ecaae12051ebb6ce1462142d496d7b16a66e250",
+  "data_packets_sent": 1764,
+  "data_packets_exactly_echoed": 1764,
+  "payload_bytes": 56436,
+  "payload_reconstructed_from_trace_matches_image": true,
+  "first_address": "0x08001600",
+  "end_exclusive": "0x0800f274",
+  "device_status_reports": [
+    {
+      "state": 2,
+      "result": 0
+    },
+    {
+      "state": 2,
+      "result": 1
+    },
+    {
+      "state": 5,
+      "result": 0
+    },
+    {
+      "state": 136,
+      "result": 0
+    }
+  ],
+  "device_reported_final_success": true,
+  "normal_usb_device_returned": true,
+  "version_unchanged": "1.66",
+  "location": 17825792,
+  "started_utc": "2026-10-24T09:22:24Z",
+  "completed_utc": "2026-10-24T09:22:37Z",
+  "echo_mismatch_retries": 0,
+  "hardware_bluetooth_idle_tested": false,
+  "full_flash_readback_performed": false,
+  "trace_sha256": "241b90e34d4bffc36a6b4ef619945d14701f41625a576657cbc5d7a27696a4fd"
+}

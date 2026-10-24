@@ -1,0 +1,14 @@
+{
+  "source": "research/firmware/original/CX53730_KB_OE921_V1.66_VID-05AC_PID-024F_1DBF7FB0_20250725_dll.bin",
+  "decoded_file": "research/firmware/analysis/oe921-v166-decoded.bin",
+  "container_sha256": "20521b83834e7352fd2bed040293a599d6e37c1d80df185d003502b8ed801246",
+  "decoded_sha256": "b6aaed7f03f44095ab9e3f961cc55b5db7ab94795d19425aa1ceb9910963a152",
+  "decoded_size": 56436,
+  "codec": "byte_add_repeating_key_32",
+  "key_hex": "91cde46996455a639a8cc94cc982231537382918f9f8e6e1555aa56bb8b2acbc",
+  "checksum": "CRC32_ISO_HDLC_xor_ffffffff",
+  "checksum_value": "d9cbe71e",
+  "roundtrip_verified": true,
+  "checksum_verified": true,
+  "elf_is_analysis_wrapper_only": true
+}

@@ -1,0 +1,94 @@
+{
+  "file_size": 64628,
+  "sha256": "525dacbcb3729adfcb0ca7e45ecaae12051ebb6ce1462142d496d7b16a66e250",
+  "matches_observed_official_oe921_v166": false,
+  "header": {
+    "checksum": "0x555524c5",
+    "checksum_valid": true,
+    "header_length": 720,
+    "payload_offset": 8192,
+    "payload_length": 56436,
+    "next_image": 0,
+    "version_raw": "0x00000166",
+    "version": "1.66",
+    "device_type": 209,
+    "cid": 0,
+    "mid": 0,
+    "file_id": "ComUsbUpgradeFile",
+    "ic_name": "CX53730",
+    "boot_input": "vid_3554&pid_f808&col01",
+    "boot_output": "vid_3554&pid_f808&col01",
+    "normal_input": "vid_05ac&pid_024f&mi_01&col05",
+    "normal_output": "vid_05ac&pid_024f&mi_01&col05",
+    "sensor_name": "3395",
+    "product_name": ""
+  },
+  "commands": {
+    "reset_command": {
+      "wire_length": 17,
+      "feature": false,
+      "report_id": 8,
+      "frame_hex": "08 0d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40"
+    },
+    "prepare_command": {
+      "wire_length": 49,
+      "feature": false,
+      "report_id": 6,
+      "frame_hex": "06 b0 00 00 00 00 00 dc 74 19 67 a1 26 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "data_command": {
+      "wire_length": 49,
+      "feature": false,
+      "report_id": 6,
+      "frame_hex": "06 b1 00 00 00 08 00 16 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    }
+  },
+  "transfer_metadata": {
+    "declared_payload_length": 56436,
+    "declared_check_value": "0x1967a126",
+    "load_address": "0x08001600",
+    "end_address_exclusive": "0x0800f274",
+    "data_chunk_count": 1764,
+    "final_data_length": 20
+  },
+  "payload": {
+    "sha256": "21cddcf2816ac764add63e3a738b56de497b8b7c73e0b77ad2ab1e02dbf50f8c",
+    "entropy_bits_per_byte": 7.895609492621548,
+    "first_64_bytes_hex": "00 7d f4 ca 96 5b 5a 63 9a 8c c9 4c 7d 55 23 15 ed 0b 29 18 f9 f8 e6 e1 0d 2d a5 6b b8 b2 ac bc 91 cd e4 69 50 18 5a 63 56 5f c9 4c c9 82 23 15 37 38 29 18 b7 cb e6 e1 55 5a a5 6b 78 85 ac bc",
+    "standard_check_candidates": {
+      "zlib_crc32_payload": "0x4721267c",
+      "raw_crc32_payload": "0xb8ded983",
+      "crc32_init0_no_final_xor": "0x50279119",
+      "crc32_init0_final_xor": "0xafd86ee6",
+      "byte_sum": "0x006fe124",
+      "byte_sum_complement_55555555": "0x54e57431",
+      "le_word_sum": "0xf5f1ea97"
+    },
+    "matching_standard_checks": [],
+    "repeated_blocks": [
+      {
+        "hex": "90 cd e4 bf 95 44 5a ba 9a 8b c9 a2 c9 81 22 6c 37 38 28 6e f8 f8 e5 38 54 59 a4 c3 b8 b4 ae 0d",
+        "count": 23
+      },
+      {
+        "hex": "91 cd e4 ad 96 45 5a 74 9a 8c c9 4c c9 c6 23 15 37 49 29 18 f9 f8 e6 25 55 5a a5 7c b8 b2 ac bc",
+        "count": 6
+      },
+      {
+        "hex": "91 11 e4 69 96 56 5a 63 9a 8c c9 90 c9 82 23 26 37 38 29 18 f9 3c e6 e1 55 6b a5 6b b8 b2 ac 00",
+        "count": 6
+      },
+      {
+        "hex": "91 cd e4 be 96 45 5a b8 9a 8c c9 a1 c9 82 23 6a 37 38 29 6d f9 f8 e6 36 55 5a a5 c0 b8 b2 ac 11",
+        "count": 6
+      }
+    ]
+  },
+  "decoded_program_check": {
+    "checksum_verified": true,
+    "codec": "byte_add_repeating_key_32",
+    "decoded_sha256": "fc708939cd93676715f62d84897b2cfbdceac8336ffb4c8dfe3354e1cefee548",
+    "decoded_crc32_inverse": "0x1967a126"
+  },
+  "inspection_scope": "Container and known codec only; task status is in provenance.json. No hardware access."
+}

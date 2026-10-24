@@ -1,0 +1,53 @@
+{
+  "status": "OFFLINE_CANDIDATE_NOT_FLASHED_OR_HARDWARE_TESTED",
+  "model": "OE921 Flow Lite 84",
+  "base_version_unchanged": "1.66",
+  "base_sha256": "525dacbcb3729adfcb0ca7e45ecaae12051ebb6ce1462142d496d7b16a66e250",
+  "candidate_sha256": "c10ffdff79e7b55a1b3f688d5d83d600ba38a8cf5f32855276b9204c87a063dd",
+  "candidate_decoded_sha256": "bd3c9161d74bf9b7827e252e5325a02bd8d4ac930710078757af7d2968a8221c",
+  "candidate_length": 64628,
+  "changes": [
+    {
+      "cpu_address": "0x9216",
+      "payload_offset": 31766,
+      "container_offset": 39958,
+      "before": "0946",
+      "after": "1d46",
+      "reason": "c.li a2,2 -> c.li a2,7: command 0x0c parameter high byte"
+    },
+    {
+      "cpu_address": "0x9218",
+      "payload_offset": 31768,
+      "container_offset": 39960,
+      "before": "93058005",
+      "after": "93058000",
+      "reason": "li a1,0x58 -> li a1,8: command 0x0c parameter low byte"
+    }
+  ],
+  "decoded_different_byte_offsets_from_base": [
+    31766,
+    31771
+  ],
+  "container_different_byte_offsets_from_base": [
+    0,
+    1,
+    482,
+    483,
+    484,
+    485,
+    39958,
+    39963
+  ],
+  "device_check_before": "1967a126",
+  "device_check_after": "3b108f08",
+  "header_checksum_after": "5555252a",
+  "command": "0x0c",
+  "parameter_bytes_before": "58 02",
+  "parameter_bytes_after": "08 07",
+  "parameter_le16_before": 600,
+  "parameter_le16_after": 1800,
+  "parameter_semantics": "Suspected idle timeout in seconds; not confirmed by protocol documentation or hardware test",
+  "prior_main_mcu_patch_preserved": true,
+  "all_other_program_bytes_unchanged_from_base": true,
+  "device_io_performed": false
+}

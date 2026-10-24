@@ -1,0 +1,58 @@
+[
+  {
+    "file": "embedded-4ccd7a1-v157.bin",
+    "stream_offset": 80533409,
+    "sha256": "b742968c55accd605c3522fdf29b76844e8305d88b4b8897d0356dd38ae31c56",
+    "payload_sha256": "cc0afc25a342341427f304451fa39f61d1be24c24cd2f04ead4fa584f7ca2712",
+    "size": 64656
+  },
+  {
+    "file": "embedded-4cdd431-v157.bin",
+    "stream_offset": 80598065,
+    "sha256": "f89b6be8173ad35344f4f14c1c133af7f4f398e1113cf390a2751d2e5770c5f8",
+    "payload_sha256": "c692d97301f6646aa4abcab79de069fe1083dc66c8e0fb200bf36d57a5230663",
+    "size": 64652
+  },
+  {
+    "file": "embedded-4ced0bd-v158.bin",
+    "stream_offset": 80662717,
+    "sha256": "0ce96bfaa2aab5407ff85c7c5ff678b96b580b705cf023aad2f90aa194b75e50",
+    "payload_sha256": "0e0bc3b5804561bc49fff25678f0ff11dcfbc4db354a25e3138efb53ff4c4bd7",
+    "size": 64656
+  },
+  {
+    "file": "embedded-4cfcd4d-v158.bin",
+    "stream_offset": 80727373,
+    "sha256": "c9691c33b2d7d6ef995a56cb01e595a7a7601bd9ec268056feaa1c004078535b",
+    "payload_sha256": "9468f4d77346d2ad84191e37324d09b99c55929b9d7e435c55f10b05d9a9fe5b",
+    "size": 64660
+  },
+  {
+    "file": "embedded-4d0c9e1-v158.bin",
+    "stream_offset": 80792033,
+    "sha256": "fb6c85131a540baba1de79fb574cecb7a9dec2f3daac65ef524d5463548d0247",
+    "payload_sha256": "1771b09f351dd6debd6d5ae1fb261e6e61393eaf57bec6201fa0e18faff830a6",
+    "size": 64656
+  },
+  {
+    "file": "embedded-4d1c671-v159.bin",
+    "stream_offset": 80856689,
+    "sha256": "f79c4c17bfd4307abb66bfec70edfc7654527b6c9bd459f1817ae18cdf5dcafa",
+    "payload_sha256": "b91444ea0831f518b3a3835fc7bf6a87207f4a23a55afaecc8633a418c5b4c14",
+    "size": 64660
+  },
+  {
+    "file": "embedded-4d2c305-v166.bin",
+    "stream_offset": 80921349,
+    "sha256": "3366d4919c75b2449a3aaea254fed38c621fb9f9983143d33882c5a92e8173d0",
+    "payload_sha256": "58c1c0374e7c6faba94eaf59ee3cbe4a36bca6f76aa82adbca2d60fd2828faec",
+    "size": 64628
+  },
+  {
+    "file": "embedded-4d3bf79-v168.bin",
+    "stream_offset": 80985977,
+    "sha256": "973d7b3d991d44c977acfa8ef5d018668460bfce59c08c58739ed2b23ab6743b",
+    "payload_sha256": "e60198cf3ecdbac3b1f7856b8d5644b71bbda03b88207caa39489d478ad7e7f4",
+    "size": 64624
+  }
+]
